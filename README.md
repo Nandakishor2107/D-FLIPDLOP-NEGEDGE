@@ -28,17 +28,60 @@ Next state of D flip-flop is always equal to data input, D for every positive tr
 
 **Procedure**
 
-/* write all the steps invloved */
+Step1: Define the specifications and initialize the design.
+Step2: Declare the name of the entity and architecture by using VHDL source code.
+Step3: Write the source code in VERILOG.
+Step4: Check the syntax and debug the errors if found, obtain the synthesis report.
+Step5: Verify the output by simulating the source code.
+Step6: Write all possible combinations of input using the test bench.
+Step7: Obtain the place and route report.
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+/* Program for flipflops and verify its truth table in quartus using Verilog programming. 
+```
+module DFlipFlop(d, clk, rst, q, qbar);
+ input d;
+ input clk;
+ input rst;
+ output q;
+ output qbar;
+reg q;
+reg qbar;
+ always @ (posedge(clk) or posedge(rst)) begin
+ if (rst==1'b1)
+begin
+q=1'b0;
+qbar=1'b1;
+end
+else if (d==1'b0)
+begin
+q=1'b0;
+qbar=1'b1;
+end
+else
+begin
+q=1'b1;
+qbar=1'b0;
+end end endmodule
+
+```
+
+
+Developed by: Nanda Kishor S P
+RegisterNumber: 24011485
 */
 
 **RTL LOGIC FOR FLIPFLOPS**
 
+![Screenshot (104)](https://github.com/user-attachments/assets/134de132-d23b-46b7-b926-facea68fe109)
+
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
 
+![Screenshot (105)](https://github.com/user-attachments/assets/653ba911-4bef-413a-bead-79611b306bb0)
+
 
 **RESULTS**
+
+The D flip-flop was successfully implemented using Verilog, and its functionality was validated through simulation. The simulation results were consistent with the expected functional table of the D flip-flop.
